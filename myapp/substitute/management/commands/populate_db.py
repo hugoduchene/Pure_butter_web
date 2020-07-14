@@ -30,6 +30,7 @@ class Command(BaseCommand):
                     stores = i.get('stores'),
                     brands = i.get('brands'),
                     link = i.get('link'),
-                    pictures = i.get('pictures')
+                    pictures = i.get('pictures'),
+                    nutrition_score_100 = i.get('nutrition_score_100')
                 )
                 req_product.save()

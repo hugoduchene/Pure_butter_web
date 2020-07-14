@@ -35,12 +35,14 @@ class ApiOpenFoodFacts():
                 name_product = items.get('product_name_fr', "")
                 stores = items.get('stores', "")
                 description = items.get("ingredients_text_fr", "")
-                score = items.get("nutrition_grades", "")
+                score = items.get("nutrition_grades", "z")
                 brand = items.get("brands", "")
                 link = items.get("url", "")
                 picture = items.get("image_small_url", "")
                 category = items.get('categories', "")
                 parse_category = category.split(",")[0]
+                nutrition_score_100 = items.get("nutriments").get("nutrition-score-fr_100g")
+
 
                 dictionary_product = {
                     'category' : parse_category,
@@ -50,9 +52,13 @@ class ApiOpenFoodFacts():
                     'stores': stores,
                     'brands': brand,
                     'link': link,
-                    'pictures' : picture
+                    'pictures' : picture,
+                    'nutrition_score_100': nutrition_score_100
                     }
 
                 self.list_product.append(dictionary_product)
 
             return self.list_product
+
+a = ApiOpenFoodFacts()
+a.get_data()

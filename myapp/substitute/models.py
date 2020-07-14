@@ -1,8 +1,7 @@
 from django.db import models
 
+
 # Create your models here.
-
-
 class Categories(models.Model):
     name_category = models.CharField(max_length=200, unique=True)
 
@@ -15,12 +14,8 @@ class Products(models.Model):
     brands = models.TextField()
     link = models.TextField()
     pictures = models.CharField(max_length=200, default="")
-
-class User(models.Model):
-    pseudo = models.CharField(max_length=155)
-    password = models.CharField(max_length=200)
-    mail = models.EmailField()
+    nutrition_score_100 = models.IntegerField(null=True)
 
 class User_record(models.Model):
-    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_user = models.ForeignKey('user.CustomUser', on_delete=models.CASCADE)
     id_product = models.ForeignKey(Products, on_delete=models.CASCADE)

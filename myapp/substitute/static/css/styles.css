@@ -10311,7 +10311,11 @@ footer.result {
 }
 
 .box_user_image {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url(../assets/img/landscape.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 270px;
     padding: 2rem;
 }
 
@@ -10339,4 +10343,15 @@ footer.result {
     border: 2px solid rgba(0, 0, 0, 0.8);
     color: rgb(255, 255, 255);
     text-align: center;
+}
+
+.table_product{
+  margin-top: 10rem;
+  border: 2px solid black;
+  margin-bottom: 350px;
+}
+
+.component_product{
+  text-align: center;
+
 }

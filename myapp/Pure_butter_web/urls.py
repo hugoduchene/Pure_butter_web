@@ -17,10 +17,23 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from substitute import views
+from user import views as views_connect
+from django.contrib.auth import views as auth_views
+
+
 
 urlpatterns = [
-    path('', views.index),
+    path('myfood', views.get_product_record, name='myfood'),
+    path('save', views.save_food, name='save'),
+    path('account', views_connect.accountView, name='account'),
+    path('logout', auth_views.LogoutView.as_view(next_page='/registration'), name='logout'),
+    path('login', auth_views.LoginView.as_view(template_name='user/login.html'), name='login'),
+    path('registration', views_connect.registrationView),
+    path('meat/<name_product>', views.search_meat, name='meat'),
+    path('result', views.result),
+    path('', views.index, name='index'),
     path('admin', admin.site.urls),
 ]
 

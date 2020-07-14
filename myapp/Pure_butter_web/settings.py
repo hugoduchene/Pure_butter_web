@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'user',
     'substitute',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -122,7 +123,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', )
+AUTH_USER_MODEL = 'user.CustomUser'
+LOGIN_REDIRECT_URL = 'index'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
