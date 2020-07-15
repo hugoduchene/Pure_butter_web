@@ -1,8 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="static/assets/img/favicon.ico" />
+    <link rel="stylesheet" href="{% static 'css/user_style.css'%}">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<div class="container">
+  <div class="row box_registrer">
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="col-sm-12">{{ form.username.label }}</div>
+      <div class="col-sm-12 field_registrer">{{ form.username }}</div>
+
+      <div class="col-sm-12">{{ form.email.label }}</div>
+      <div class="col-sm-12 field_registrer">{{ form.email }}</div>
+
+      <div class="col-sm-12">{{ form.password1.label }}</div>
+      <div class="col-sm-12 field_registrer">{{ form.password1 }}</div>
+
+      <div class="col-sm-12">{{ form.password2.label }}</div>
+      <div class="col-sm-12 field_registrer">{{ form.password2 }}</div>
+
+    {{ form.errors }}
 
 
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form }}
-
-  <input type="submit">
-</form>
+      <input type="submit">
+    </form>

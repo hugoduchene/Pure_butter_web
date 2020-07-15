@@ -10002,7 +10002,7 @@ h3 {
 body,
 html {
   width: 100%;
-  height: 100%;
+  height: 0%;
 }
 
 hr.divider {
@@ -10346,12 +10346,32 @@ footer.result {
 }
 
 .table_product{
-  margin-top: 10rem;
-  border: 2px solid black;
-  margin-bottom: 350px;
+  color: white;
+  background-color: rgb(222, 148, 64);;
+  margin-top: 7rem;
+  border: 2px solid white;
+  margin-bottom: 38rem;;
 }
 
 .component_product{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   text-align: center;
 
+}
+
+.box_login{
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 3rem;
+}
+
+.button_voir{
+  background-color: rgb(222, 148, 64);
+  color: white;
+  border-color: white;
+}
+
+.content_user {
+  margin-bottom: 31.5rem;
 }

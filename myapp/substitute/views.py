@@ -34,6 +34,12 @@ def result(request):
                 }
              template = loader.get_template('substitute/result.html')
              return HttpResponse(template.render(request=request, context= context))
+         else:
+             pass
+    else:
+        template = loader.get_template('substitute/404.html')
+        return HttpResponse(template.render(request=request))
+
 
 def search_meat(request, name_product):
     if request.method == 'GET':
@@ -52,6 +58,10 @@ def save_food(request):
         req_prod = User_record(id_user=request.user, id_product=obj_prod)
         req_prod.save()
         return redirect('index')
+    else:
+        template = loader.get_template('substitute/404.html')
+        return HttpResponse(template.render(request=request))
+
 
 def get_product_record(request):
     list_product = [prod.id_product for prod in User_record.objects.filter(id_user=request.user.id)]

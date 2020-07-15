@@ -30,9 +30,9 @@ urlpatterns = [
     path('account', views_connect.accountView, name='account'),
     path('logout', auth_views.LogoutView.as_view(next_page='/registration'), name='logout'),
     path('login', auth_views.LoginView.as_view(template_name='user/login.html'), name='login'),
-    path('registration', views_connect.registrationView),
+    path('registration', views_connect.registrationView, name='registration'),
     path('meat/<name_product>', views.search_meat, name='meat'),
-    path('result', views.result),
+    path('result', views.result, name='result'),
     path('', views.index, name='index'),
     path('admin', admin.site.urls),
 ]

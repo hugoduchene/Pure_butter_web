@@ -1,7 +1,23 @@
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form }}
 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="static/assets/img/favicon.ico" />
+    <link rel="stylesheet" href="{% static 'css/user_style.css'%}">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row box_login">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="col-sm-12 field_login"><label>{{ form.username.label }}</label><div class="col-sm-12">{{ form.username }}</div></div>
+          <div class="col-sm-12 field_login"><label>{{ form.password.label }}</label><div class="col-sm-12">{{ form.password }}</div></div>
+          <div class="col-sm-12 field_login"><input type="submit"></div>
+        </form>
+      </div>
 
-  <input type="submit">
-</form>
+  </body>
+</html>

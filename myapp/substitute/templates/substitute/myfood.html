@@ -1,17 +1,17 @@
 {% extends "../base.html" %}
 {% block content %}
-{% for i in products %}
 <div class="container table_product align-items-center">
+{% for i in products %}
+
   <form class="" action="/meat/{{i.product_name}}" method="get">
     <div class="row component_product">
       <div class="col-sm-12 col-md-8">{{ i.product_name }}</div>
-      <div class="col-sm-12 col-md-4"><input type="submit" name="" value="Voir"></div>
+      <div class="col-sm-12 col-md-4"><input type="submit" class="button_voir" name="" value="Voir"></div>
 
       </div>
-    </div>
+    </form>
 
-  </form>
-</div>
 {% endfor %}
+</div>
 
 {% endblock %}
