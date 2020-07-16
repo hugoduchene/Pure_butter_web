@@ -13,7 +13,7 @@
 </html>
 <div class="container">
   <div class="row box_registrer">
-    <form action="" method="post">
+    <form action="" method="post" id="form_registrer">
       {% csrf_token %}
       <div class="col-sm-12">{{ form.username.label }}</div>
       <div class="col-sm-12 field_registrer">{{ form.username }}</div>

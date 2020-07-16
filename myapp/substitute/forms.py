@@ -5,7 +5,8 @@ class SearchSubstitute(forms.Form):
         max_length=100,
         widget = forms.TextInput(attrs={
             'class' : 'form-control search_button',
-            'placeholder': 'Produits'
+            'placeholder': 'Produits',
+            'id' : 'SearchSubstitute'
         }))
 
 class SearchMeat(forms.Form):

@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="/"><img src="static/assets/img/logo_pur_beurre-favicon.png" class="logo">Pur Beurre</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon" id="icon_menu"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0 d-flex align-items-center">
                        <li class="nav-item">
@@ -36,17 +36,17 @@
                             {{ form_header.input_product_name }}
                            </form>
                        </li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account"><i class="fas fa-user"></i></a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/myfood"><i class="fas fa-carrot"></i></a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" id="id_account" href="/account"><i class="fas fa-user"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" id="id_food" href="/myfood"><i class="fas fa-carrot"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" id="id_logout" href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        {% if request.user.is_authenticated %}
-          {% block content %}{% endblock %}
-        {% endif %}
+
+        {% block content %}{% endblock %}
+
 
         <!-- Footer-->
     <footer class="bg-light py-5 result">

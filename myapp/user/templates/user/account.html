@@ -1,18 +1,19 @@
 {% extends "../base.html" %}
+{% if request.user.is_authenticated %}
+  {% block content %}
+  <!-- photo user -->
+      <div class="box_user_image">
+          <div class="container">
+              <div class="image_user">
+                  <div class="name_user">{{ request.user.username }}</div>
+                  <img src="">
+              </div>
+          </div>
+      </div>
 
-{% block content %}
-<!-- photo user -->
-    <div class="box_user_image">
-        <div class="container">
-            <div class="image_user">
-                <div class="name_user">{{ request.user.username }}</div>
-                <img src="">
-            </div>
-        </div>
-    </div>
-
-<!-- Infos User -->
-    <div class="container content_user">
-        <div class="mail">{{ request.user.email }}</div>
-    </div>
-{% endblock %}
+  <!-- Infos User -->
+      <div class="container content_user">
+          <div class="mail">{{ request.user.email }}</div>
+      </div>
+  {% endblock %}
+{% endif %}
