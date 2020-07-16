@@ -16,7 +16,7 @@
               <a href="/meat/{{ i.product_name }}"><img alt="" class="image_result" src="{{ i.pictures }}"></a>
               <div class="nutriscore_result">{{i.score_grade}}</div>
               <div> {{ i.product_name }}</div>
-              <form method="post" action="http://127.0.0.1:8000/save">
+              <form method="post" action="/save">
                   {% csrf_token %}
                   <input type="hidden" name="id_product" value="{{ i.id }}" class="input_hidden">
                   <button type="submit" name="save"><i class="fas fa-save"></i></button>

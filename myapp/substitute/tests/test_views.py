@@ -9,6 +9,8 @@ class testViews(TestCase):
         self.client = Client()
         self.index_url = reverse('index')
         self.result_url = reverse('result')
+        self.registration_url = reverse('registration')
+        self.myfood_url = reverse('myfood')
         self.search_meat_url = reverse('meat', args=['nutella'])
         self.Categories = Categories.objects.create(
             name_category='pate à tartiner'
@@ -44,8 +46,8 @@ class testViews(TestCase):
 
     def test_get_product_record(self):
         response = self.client.get(self.productRecord_url)
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'substitute/myfood.html')
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, self.registration_url, status_code=302)
 
     def test_result_POST(self):
         response = self.client.post(self.result_url, {
@@ -68,4 +70,4 @@ class testViews(TestCase):
         })
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, self.index_url, status_code=302)
+        self.assertRedirects(response, self.myfood_url, status_code=302)

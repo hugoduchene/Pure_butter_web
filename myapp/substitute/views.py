@@ -67,9 +67,12 @@ def save_food(request):
 
 
 def get_product_record(request):
-    list_product = [prod.id_product for prod in User_record.objects.filter(id_user=request.user.id)]
-    context= {
-        'products' : list_product
-    }
-    template = loader.get_template('substitute/myfood.html')
-    return HttpResponse(template.render(request=request, context=context))
+    if request.user.is_authenticated:
+        list_product = [prod.id_product for prod in User_record.objects.filter(id_user=request.user.id)]
+        context= {
+            'products' : list_product
+        }
+        template = loader.get_template('substitute/myfood.html')
+        return HttpResponse(template.render(request=request, context=context))
+    else:
+        return redirect('registration')
