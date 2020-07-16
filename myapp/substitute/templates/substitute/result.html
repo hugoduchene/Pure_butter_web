@@ -12,10 +12,8 @@
 <div class="container">
   <div class="row content_result">
   {% for i in prod %}
-
-
           <div class="col-sm-12 col-md-4 parent_result">
-              <img alt="" class="image_result" src="{{ i.pictures }}">
+              <a href="/meat/{{ i.product_name }}"><img alt="" class="image_result" src="{{ i.pictures }}"></a>
               <div class="nutriscore_result">{{i.score_grade}}</div>
               <div> {{ i.product_name }}</div>
               <form method="post" action="http://127.0.0.1:8000/save">
