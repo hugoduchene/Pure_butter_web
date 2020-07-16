@@ -9,8 +9,11 @@ from django.http import HttpResponse
 
 # Create your views here.
 def accountView(request):
-    template = loader.get_template('user/account.html')
-    return HttpResponse(template.render(request=request))
+    if request.user.is_authenticated:
+        template = loader.get_template('user/account.html')
+        return HttpResponse(template.render(request=request))
+    else:
+        return redirect('registration')
 
 def registrationView(request):
     form = RegistrationForm()
