@@ -54,6 +54,13 @@ class testViews(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'substitute/result.html')
 
+    def test_result_POST(self):
+        response = self.client.post(self.result_url, {
+            'input_product_name':'aaaaaaaaaaaaaaaaa'
+        })
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, self.index_url, status_code=302)
+
     def test_save_food_POST(self):
         user = self.client.force_login(User.objects.get_or_create(username='testuser')[0])
         response = self.client.post(self.save_food_url, {

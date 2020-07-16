@@ -25,15 +25,18 @@ def result(request):
          if form.is_valid():
              name_product = form.cleaned_data['input_product_name']
              query_product = Products.objects.filter(product_name__iexact= name_product)
-             category_product = query_product[0].id_category
-             best_products = Products.objects.filter(id_category=category_product).order_by('score_grade')[:6]
-             context = {
-                'form_header': form_header,
-                "search_food": query_product[0],
-                "prod" : best_products
-                }
-             template = loader.get_template('substitute/result.html')
-             return HttpResponse(template.render(request=request, context= context))
+             if len(query_product) > 0:
+                 category_product = query_product[0].id_category
+                 best_products = Products.objects.filter(id_category=category_product).order_by('score_grade')[:6]
+                 context = {
+                    'form_header': form_header,
+                    "search_food": query_product[0],
+                    "prod" : best_products
+                    }
+                 template = loader.get_template('substitute/result.html')
+                 return HttpResponse(template.render(request=request, context= context))
+             else:
+                 return redirect('index')
          else:
              pass
     else:
@@ -57,7 +60,7 @@ def save_food(request):
         obj_prod = Products.objects.get(id=id_product)
         req_prod = User_record(id_user=request.user, id_product=obj_prod)
         req_prod.save()
-        return redirect('index')
+        return redirect('myfood')
     else:
         template = loader.get_template('substitute/404.html')
         return HttpResponse(template.render(request=request))

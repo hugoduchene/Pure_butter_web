@@ -10229,6 +10229,7 @@ header.food_head {
 
 .image_result{
     width: 100%;
+    max-height: 200px;
 
 }
 .nutriscore_result{
@@ -10246,7 +10247,7 @@ header.food_head {
 
 .parent_result{
     position: relative;
-
+    margin-bottom: 2rem;
 }
 
 footer.result {
