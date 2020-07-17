@@ -19,7 +19,7 @@ class TestModel(TestCase):
 
         self.product = Products.objects.create(
             id_category = self.category,
-            product_name = "evian"
+            product_name = 'evian'
         )
 
         self.user_record = User_record.objects.create(

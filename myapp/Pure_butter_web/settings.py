@@ -31,6 +31,8 @@ else:
 
 ALLOWED_HOSTS = ['purebutterweb.herokuapp.com']
 
+#ALLOWED_HOSTS = ['127.0.0.1']
+
 
 # Application definition
 

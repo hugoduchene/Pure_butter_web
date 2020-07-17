@@ -2,6 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from substitute.models import Categories, Products, User_record
 from user.models import CustomUser as User
+from substitute.forms import SearchSubstitute
 
 
 class testViews(TestCase):
@@ -22,7 +23,20 @@ class testViews(TestCase):
         self.save_food_url = reverse('save')
         self.productRecord_url = reverse('myfood')
 
+    def test_result_form(self):
+        form_data = {'input_product_name': 'nutella'}
+        form = SearchSubstitute(data=form_data)
+        response = self.client.post(self.result_url, form_data)
+        self.assertTrue(form.is_valid())
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'substitute/result.html')
 
+    def test_bad_user_text_in_searchSubstitute(self):
+        form_data = {'input_product_name' : 'aaaaaaaaaaaaaa'}
+        form = SearchSubstitute(data=form_data)
+        response = self.client.post(self.result_url, form_data)
+        self.assertTrue(form.is_valid())
+        self.assertRedirects(response, self.index_url, status_code=302)
 
     def test_index_GET(self):
         response = self.client.get(self.index_url)

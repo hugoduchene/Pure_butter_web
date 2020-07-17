@@ -19,12 +19,42 @@ class TestProjectPage(StaticLiveServerTestCase):
         self.account_url = self.live_server_url + reverse('account')
         self.food_url = self.live_server_url + reverse('myfood')
 
+    def test_click_account(self):
+        self.browser.get(self.index_url)
+        self.browser.find_element_by_id('icon_menu').click()
+        self.browser.implicitly_wait(10)
+        self.browser.find_element_by_id('id_account').click()
+        self.assertEquals(
+            self.browser.current_url,
+            self.registrer_url
+        )
+        self.browser.close()
 
-    def tearDown(self):
+    def test_click_logout(self):
+        self.browser.get(self.index_url)
+        self.browser.find_element_by_id('icon_menu').click()
+        self.browser.implicitly_wait(10)
+        self.browser.find_element_by_id('id_logout').click()
+        self.assertEquals(
+            self.browser.current_url,
+            self.registrer_url
+        )
+        self.browser.close()
+
+    def test_click_myfood(self):
+        self.browser.get(self.index_url)
+        self.browser.find_element_by_id('icon_menu').click()
+        self.browser.implicitly_wait(10)
+        self.browser.find_element_by_id('id_food').click()
+        self.assertEquals(
+            self.browser.current_url,
+            self.registrer_url
+        )
         self.browser.close()
 
     def test_no_projects_alert_is_displayed(self):
         self.browser.get(self.live_server_url)
+        self.browser.close()
 
 
     def test_no_projects_alert_button_redirects_to_index_page(self):
@@ -35,6 +65,7 @@ class TestProjectPage(StaticLiveServerTestCase):
             self.browser.current_url,
             index_url
         )
+        self.browser.close()
 
     def test_user_redirected(self):
         self.browser.get(self.index_url)
@@ -43,6 +74,7 @@ class TestProjectPage(StaticLiveServerTestCase):
             self.browser.current_url,
             self.index_url
         )
+        self.browser.close()
 
     def test_search(self):
         self.browser.get(self.index_url)
@@ -51,8 +83,9 @@ class TestProjectPage(StaticLiveServerTestCase):
         element.submit()
         self.assertEquals(
             self.browser.current_url,
-            self.result_url
+            self.index_url
         )
+        self.browser.close()
 
     def test_registrer(self):
         self.browser.get(self.registrer_url)
@@ -70,32 +103,4 @@ class TestProjectPage(StaticLiveServerTestCase):
             self.browser.current_url,
             self.index_url
         )
-    def test_click_account(self):
-        self.browser.get(self.index_url)
-        self.browser.find_element_by_id('icon_menu').click()
-        time.sleep(5)
-        self.browser.find_element_by_id('id_account').click()
-        time.sleep(5)
-
-        self.assertEquals(
-            self.browser.current_url,
-            self.account_url
-        )
-
-    def test_click_myfood(self):
-        self.browser.get(self.index_url)
-        self.browser.find_element_by_id('icon_menu').click()
-        self.browser.find_element_by_id('id_food').click()
-        self.assertEquals(
-            self.browser.current_url,
-            self.food_url
-        )
-
-    def test_click_logout(self):
-        self.browser.get(self.index_url)
-        self.browser.find_element_by_id('icon_menu').click()
-        self.browser.find_element_by_id('id_logout').click()
-        self.assertEquals(
-            self.browser.current_url,
-            self.registrer_url
-        )
+        self.browser.close()
