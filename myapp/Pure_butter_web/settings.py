@@ -37,8 +37,6 @@ ALLOWED_HOSTS = ['purebutterweb.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'user',
-    'substitute',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'user',
+    'substitute',
 ]
 
 MIDDLEWARE = [
