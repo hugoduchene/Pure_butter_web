@@ -4,9 +4,6 @@ from user.forms import RegistrationForm, LoginForm
 from django.template import loader
 from django.http import HttpResponse
 
-
-
-
 # Create your views here.
 def accountView(request):
     if request.user.is_authenticated:

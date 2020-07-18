@@ -22,7 +22,7 @@ class Products(models.Model):
     def __str__(self):
         return self.product_name
 
-class User_record(models.Model):
+class UserRecord(models.Model):
     id_user = models.ForeignKey('user.CustomUser', on_delete=models.CASCADE)
     id_product = models.ForeignKey(Products, on_delete=models.CASCADE)
 

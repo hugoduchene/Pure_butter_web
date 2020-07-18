@@ -25,6 +25,7 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
+    path('mentions', views.mention, name="mentions"),
     path('myfood', views.get_product_record, name='myfood'),
     path('save', views.save_food, name='save'),
     path('account', views_connect.accountView, name='account'),

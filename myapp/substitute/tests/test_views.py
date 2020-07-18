@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from substitute.models import Categories, Products, User_record
+from substitute.models import Categories, Products, UserRecord
 from user.models import CustomUser as User
 from substitute.forms import SearchSubstitute
 

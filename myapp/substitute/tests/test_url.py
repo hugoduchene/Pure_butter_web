@@ -1,8 +1,12 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from substitute.views import get_product_record, save_food, search_meat, result, index
+from substitute.views import get_product_record, save_food, search_meat, result, index, mention
 
 class TestUrls(SimpleTestCase):
+
+    def test_mention_is_resolved(self):
+        url = reverse('mentions')
+        self.assertEquals(resolve(url).func, mention)
 
     def test_myfood_url_is_resolved(self):
         url = reverse('myfood')

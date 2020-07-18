@@ -1,5 +1,5 @@
 from django.test import TestCase
-from substitute.models import Categories, Products, User_record
+from substitute.models import Categories, Products, UserRecord
 from django.contrib.auth import get_user_model
 
 
@@ -22,7 +22,7 @@ class TestModel(TestCase):
             product_name = 'evian'
         )
 
-        self.user_record = User_record.objects.create(
+        self.user_record = UserRecord.objects.create(
             id_user = self.create_user,
             id_product = self.product
 
