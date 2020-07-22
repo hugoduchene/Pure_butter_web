@@ -13,7 +13,6 @@ pip install -r requirements.txt
 For this to work you will need to install postgresql but if you already have postgresql go to myapp/Pure_butter_web/settings :
 
 ```
-
 Change : DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

@@ -58,20 +58,24 @@ def search_meat(request, name_product):
         return HttpResponse(template.render(request=request, context=context))
 
 def save_food(request):
-    if request.method == 'POST':
-        id_product = request.POST['id_product']
-        obj_prod = Products.objects.get(id=id_product)
-        req_prod = UserRecord(id_user=request.user, id_product=obj_prod)
-        req_prod.save()
-        return redirect('myfood')
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            id_product = request.POST['id_product']
+            obj_prod = Products.objects.get(id=id_product)
+            req_prod = UserRecord(id_user=request.user, id_product=obj_prod)
+            req_prod.save()
+            return redirect('myfood')
+        else:
+            template = loader.get_template('substitute/404.html')
+            return HttpResponse(template.render(request=request))
     else:
-        template = loader.get_template('substitute/404.html')
-        return HttpResponse(template.render(request=request))
+        return redirect('registration')
 
 
 def get_product_record(request):
     if request.user.is_authenticated:
         list_product = [prod.id_product for prod in UserRecord.objects.filter(id_user=request.user.id)]
+
         context= {
             'form_header': form_header,
             'products' : list_product

@@ -55,8 +55,8 @@ class testViews(TestCase):
 
     def test_save_food_GET(self):
         response = self.client.get(self.save_food_url)
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'substitute/404.html')
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, self.registration_url, status_code=302)
 
     def test_get_product_record(self):
         response = self.client.get(self.productRecord_url)
