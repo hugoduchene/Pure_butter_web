@@ -10338,7 +10338,7 @@ footer.result {
     border-radius: 10px;
     margin: 0 auto;
     width: 40%;
-    margin-bottom: 19rem;
+    margin-bottom: 1rem;
     margin-top: 3rem;
     background-color: rgba(0, 0, 0, 0.8);
     border: 2px solid rgba(0, 0, 0, 0.8);
@@ -10374,5 +10374,23 @@ footer.result {
 }
 
 .content_user {
-  margin-bottom: 31.5rem;
+  margin-bottom: 27rem;
+  text-align: center;
+}
+
+.button_subscribe_email{
+  border-radius: 4px;
+  padding: 15px;
+  color: white;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: 0.2s;
+
+}
+
+.button_subscribe_email:hover{
+  border: none;
+  background-color: rgb(222, 148, 64);
+  color: rgba(0, 0, 0, 0.8);
+
 }

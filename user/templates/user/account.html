@@ -14,6 +14,14 @@
   <!-- Infos User -->
       <div class="container content_user">
           <div class="mail">{{ request.user.email }}</div>
+
+          <form class="" action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="button_subscribe_email" name="button_subscribe_email">Je souhaite recevoir les newsletter</button>
+          </form>
       </div>
+
+  <!-- button email -->
+
   {% endblock %}
 {% endif %}
