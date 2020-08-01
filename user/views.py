@@ -6,6 +6,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django.core.mail import send_mail
 import Pure_butter_web.settings as settings
+from django.core.management import call_command
 
 # Create your views here.
 def accountView(request):

@@ -1,8 +1,10 @@
 from django.test import TestCase, Client
+from django.core import mail
 from django.urls import reverse
 from user.models import CustomUser as User
 from user.forms import RegistrationForm
 from django.contrib.auth.forms import UserCreationForm
+import Pure_butter_web.settings as settings
 
 
 class testViews(TestCase):
@@ -21,6 +23,20 @@ class testViews(TestCase):
     def test_account_GET(self):
         response = self.client.get(self.account_url)
         self.assertRedirects(response, self.registration_url, status_code=302)
+
+    def test_account_POST(self):
+        user = self.client.force_login(User.objects.get_or_create(username='testuser')[0])
+        response = self.client.post(self.account_url)
+        mail.send_mail(
+            'Inscription newsletter', 'Bienvenue vous faites parti de nos plus fidèles collaborateurs',
+            settings.env('EMAIL'), ['to@example.com'],
+            fail_silently=False,
+        )
+
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'Inscription newsletter')
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'user/account.html')
 
     def test_registration_POST_form(self):
         form_data = {
