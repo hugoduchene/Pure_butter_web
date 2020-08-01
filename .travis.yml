@@ -10,4 +10,4 @@ env: DJANGO_SETTINGS_MODULE="Pure_butter_web.settings.travis"
 services:
   - postgresql
 script:
-  - python manage.py test user substitute functional_test
+  - python manage.py test user substitute 
