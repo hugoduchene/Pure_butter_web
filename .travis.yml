@@ -11,4 +11,4 @@ services:
   - postgresql
 
 script:
-  - python manage.py test user substitute
+  - python manage.py test user substitute functionnal_test
